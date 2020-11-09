@@ -6,4 +6,5 @@
 - [x] [自动化注册布局组件](./src/layout/README.md)
 - [x] [api 管理](./src/api/README.md)
 - [x] [插件管理](./src/plugin/README.md)
-- [x] [用户相关基础功能](./src/store/README.md)
+- [x] [用户相关(vuex module)](./src/store/README.md)
+- [x] [用户相关(router)](./src/router/README.md)
