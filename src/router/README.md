@@ -1,8 +1,16 @@
 管理项目路由的目录
 
-在需要身份验证的页面组件 meta 中配置
+在需要身份验证的页面组件 meta 中配置 auth 
 ```javascript
-{ auth: true }
+const routes = [
+  /**
+   *  {
+   *    path: '/home',
+   *    component: () => import('...'),
+   *    meta: { auth: true }
+   *  }
+   **/
+]
 ```
 
 其中 "跳转页面时进行身份验证" 在这里完成

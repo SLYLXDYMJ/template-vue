@@ -4,7 +4,15 @@ import store from '@/store'
 
 Vue.use(VueRouter)
 
-const routes = []
+const routes = [
+  /**
+   *  {
+   *    path: '/home',
+   *    component: () => import('...'),
+   *    meta: { auth: true }
+   *  }
+   **/
+]
 
 const router = new VueRouter({
   routes
