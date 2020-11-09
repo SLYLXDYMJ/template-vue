@@ -6,5 +6,6 @@
 - [x] [自动化注册布局组件](./src/layout)
 - [x] [api 管理](./src/api)
 - [x] [插件管理](./src/plugin)
-- [x] [用户相关(vuex module)](./src/store)
-- [x] [用户相关(router)](./src/router)
+- [x] 用户相关基础功能
+    - [x] [vuex module 部分](./src/store)
+    - [x] [router 部分](./src/router)

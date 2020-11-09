@@ -4,6 +4,8 @@
 
 在 api/index.js 中有两种模式可供选择，区别是调用时是否有模块名，相应的打开和取消注释即可
 
+使用方法如下：
+
 ```javascript
 import api from '@/api'
 

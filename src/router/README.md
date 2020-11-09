@@ -1,6 +1,5 @@
-管理项目路由的目录
+在需要身份验证的页面组件 meta 中配置 auth
 
-在需要身份验证的页面组件 meta 中配置 auth 
 ```javascript
 const routes = [
   /**
@@ -13,7 +12,7 @@ const routes = [
 ]
 ```
 
-其中 "跳转页面时进行身份验证" 在这里完成
+加入跳转页面时的身份验证代码
 ```javascript
 router.beforeEach(async (to, from, next) => {
   if (

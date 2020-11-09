@@ -1,6 +1,6 @@
-管理项目中的公共状态（vuex）
+用户相关的功能封装在 store/module/user.js 模块中
 
-其中 user 是用户模块，需要根据实际情况自行完善其中预定义的方法
+具体封装如下：
 
 ## state
  attr  | desc
