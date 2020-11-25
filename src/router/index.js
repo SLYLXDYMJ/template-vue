@@ -26,7 +26,7 @@ router.beforeEach(async (to, from, next) => {
     // 目标页面需要登录后才能进入
     to.meta.auth &&
     // 用户身份验证失败
-    await store.dispatch('user/validate') === false
+    await store.dispatch('user/check') === false
   ) {
     return store.dispatch('user/logout')
   }

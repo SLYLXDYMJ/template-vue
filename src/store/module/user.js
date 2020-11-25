@@ -21,54 +21,32 @@ export default {
   },
   actions: {
     /**
-     *  登录，
-     *  最终需要设置 token
-     *  @param { String } token - 登录成功后获得的用户身份 token
+     *  设置 user token
+     *  @param { String }  token     - token
+     *  @param { Boolean } remember  - 是否永久记录 token
      **/
-    login ({ commit }, token) {
-      /**
-       *  建议在组件中实现账号密码验证逻辑
-       *  在这里只设置 token
-       **/
-      
+    setToken ({ commit }, { token, remember }) {
       commit('SET_TOKEN', token)
+      (remember ? localStorage : sessionStorage)[ KEY_TOKEN ] = token
     },
     
     /**
      *  验证用户身份是否有效
-     *  最终需要返回 true 或 false
+     *  @return Boolean
      **/
-    validate ({ state }) {
+    check ({ state }) {
       return Boolean(state.token)
     },
     
     /**
-     *  获取用户信息
-     *  最终需要返回获取到的用户信息
-     **/
-    async getInfo () {
-      return { name: 'jason' }
-    },
-    
-    /**
-     *  更新用户信息
-     *  最终需要设置 info
+     *  更新用户信息并返回用户信息
+     *  @return Object
      **/
     async updateInfo ({ commit, dispatch }) {
-      commit('SET_INFO', await dispatch('getInfo'))
-    },
-    
-    /**
-     *  记录登录状态
-     *  @param { Boolean } forever - 是否永久记住
-     **/
-    remember ({ state }, forever = false) {
-      let { token } = state
+      let user = { name: 'jason' }
       
-      if (token) {
-        let storage = forever ? localStorage : sessionStorage
-        storage[ KEY_TOKEN ] = state.token
-      }
+      commit('SET_INFO', user)
+      return user
     },
     
     /**
@@ -84,12 +62,6 @@ export default {
       
       delete sessionStorage[ KEY_TOKEN ]
       delete localStorage[ KEY_TOKEN ]
-      
-      /**
-       *  ! 不推荐在这里弹出提示
-       *  ! 建议在调用 logout 的组件中弹框提示用户
-       *  ! 因为登出原因可能不相同，统一不起来
-       **/
       
       return router.replace(
         `/login?redirect=${ router.history.current.fullPath }`
