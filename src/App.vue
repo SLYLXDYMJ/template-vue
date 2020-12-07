@@ -1,18 +1,9 @@
 <template>
-  <div id="app">
-    <comp-example/>
-    <layout-example/>
-  </div>
+  <router-view/>
 </template>
 
 <script>
-  import api from '@/api'
-
   export default {
-    created () {
-      this.$example()
-      api.example.example({ test: 10086 })
-    }
   }
 </script>
 

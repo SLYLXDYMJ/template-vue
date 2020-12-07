@@ -3,6 +3,9 @@ import router from '@/router'
 /** 记住密码时，存入 Storage 中的 key 值 **/
 const KEY_TOKEN = 'token'
 
+/** 登录页面路由 **/
+const LOGIN_PATH = '/login'
+
 export default {
   namespaced: true,
   state: {
@@ -22,11 +25,11 @@ export default {
   actions: {
     /**
      *  设置 user token
-     *  @param { String }  token     - token
-     *  @param { Boolean } remember  - 是否永久记录 token
+     *  @param { String }  token             - token
+     *  @param { Boolean } [remember=false]  - 是否永久记录 token
      **/
     setToken ({ commit }, { token, remember }) {
-      commit('SET_TOKEN', token)
+      commit('SET_TOKEN', token);
       (remember ? localStorage : sessionStorage)[ KEY_TOKEN ] = token
     },
     
@@ -46,15 +49,14 @@ export default {
       let user = { name: 'jason' }
       
       commit('SET_INFO', user)
+      
       return user
     },
     
     /**
      *  登出
-     *
-     *  ! 登出后会重定向到 /login 页面
-     *  ! 并拼接上 ?redirect 参数
-     *  ! 方便登录成功后定位
+     *  清空用户相关的所有信息
+     *  清空 Storage 中的 token
      **/
     logout ({ commit }) {
       commit('SET_TOKEN', null)
@@ -62,9 +64,27 @@ export default {
       
       delete sessionStorage[ KEY_TOKEN ]
       delete localStorage[ KEY_TOKEN ]
+    },
+    
+    /**
+     *  重定向到登录页面
+     *  用于登出，用户身份验证失败等场景
+     *  这里统一加上重定向参数 redirect
+     *  方便在登录成功后页面重定向
+     *
+     *  @param { Boolean } [redirect=true] - 是否包含重定向参数
+     **/
+    toLogin ({ commit }, payload = { redirect: true }) {
+      // 第一个页面的路由信息放在 pending 属性中
+      // 其余正常跳转时路由信息放在 current 属性中
+      let redirectPath = router.history.pending ?
+        router.history.pending.fullPath :
+        router.history.current.fullPath
       
-      return router.replace(
-        `/login?redirect=${ router.history.current.fullPath }`
+      router.replace(
+        payload.redirect === false ?
+          LOGIN_PATH :
+          `${ LOGIN_PATH }?redirect=${ redirectPath }`
       )
     }
   },

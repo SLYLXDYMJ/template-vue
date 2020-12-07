@@ -12,6 +12,25 @@ const routes = [
    *    meta: { auth: true }
    *  }
    **/
+  {
+    path: '/login',
+    component: () => import('../view/login/index')
+  },
+  {
+    path: '/',
+    component: () => import('../layout/default/index'),
+    children: [
+      {
+        path: '',
+        component: () => import('../view/index/index')
+      },
+      {
+        path: 'person',
+        component: () => import('../view/person/index'),
+        meta: { auth: true }
+      }
+    ]
+  }
 ]
 
 const router = new VueRouter({
@@ -28,7 +47,7 @@ router.beforeEach(async (to, from, next) => {
     // 用户身份验证失败
     await store.dispatch('user/check') === false
   ) {
-    return store.dispatch('user/logout')
+    return store.dispatch('user/toLogin')
   }
   return next()
 })

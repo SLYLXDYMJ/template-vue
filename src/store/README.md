@@ -46,12 +46,25 @@ store.dispatch('user/updateInfo', userInfo)
 ```javascript
 /**
  *  登出
- *
- *  ! 登出后会重定向到 /login 页面
- *  ! 并拼接上 ?redirect 参数
- *  ! 方便登录成功后定位
+ *  清空用户相关的所有信息
+ *  清空 Storage 中的 token
  **/
 store.dispatch('user/logout')
+```
+
+### toLogin
+> 去登陆页面
+
+```javascript
+/**
+ *  重定向到登录页面
+ *  用于登出，用户身份验证失败等场景
+ *  这里统一加上重定向参数 redirect
+ *  方便在登录成功后页面重定向
+ *
+ *  @param { Boolean } [redirect=true] - 是否包含重定向参数
+ **/
+store.dispatch('user/toLogin', { redirect: true })
 ```
 
 ## mutations
