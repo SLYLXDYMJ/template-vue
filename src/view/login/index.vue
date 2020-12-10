@@ -32,7 +32,7 @@
 
         // 模拟账号密码正确，后端返回了 token
         this.$store.dispatch('user/setToken', {
-          token: data.query,
+          token: data.cityid,
           remember: false
         })
 
