@@ -39,7 +39,10 @@
           this.$store.dispatch('user/toLogin')
         }
         else {
-          alert('用户已登录，可以进行后续操作')
+          this.$dialog.info({
+            title: '友情提示',
+            text: '用户已登录，可以进行后续操作'
+          })
         }
       }
     }

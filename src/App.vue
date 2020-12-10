@@ -3,10 +3,11 @@
 </template>
 
 <script>
-  export default {
-  }
+  export default {}
 </script>
 
 <style lang="scss">
-
+  .v-snack:not(.v-snack--absolute) {
+    padding-top: 0 !important;
+  }
 </style>

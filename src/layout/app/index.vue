@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar app v-if="$route.meta.header !== false">
       <!-- 登录之前的导航 -->
       <template v-if="!userToken">
         <v-tabs right>
@@ -67,7 +67,7 @@
     methods: {
       logout () {
         this.$store.dispatch('user/logout')
-        alert('已经退出登录')
+        this.$dialog.message.success('已退出登录')
         this.$store.dispatch('user/toLogin', {
           redirect: false
         })

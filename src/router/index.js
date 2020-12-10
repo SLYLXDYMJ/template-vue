@@ -13,16 +13,17 @@ const routes = [
    *  }
    **/
   {
-    path: '/login',
-    component: () => import('../view/login/index')
-  },
-  {
     path: '/',
-    component: () => import('../layout/default/index'),
+    component: () => import('../layout/app/index'),
     children: [
       {
         path: '',
         component: () => import('../view/index/index')
+      },
+      {
+        path: 'login',
+        component: () => import('../view/login/index'),
+        meta: { header: false }
       },
       {
         path: 'person',
