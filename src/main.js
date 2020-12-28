@@ -6,6 +6,8 @@ import store from './store'
 import './plugin'
 import './component'
 import './layout'
+import './filter'
+import './directive'
 
 import vuetify from './plugin/vuetify'
 
