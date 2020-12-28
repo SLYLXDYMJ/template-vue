@@ -7,6 +7,7 @@
 - [x] [自动化注册布局组件](./src/layout)
 - [x] [插件管理](./src/plugin)
 - [x] [api 管理](./src/api)
+    - [x] [已插件的形式集成到 Vue 原型链中](./src/plugin/api.js)
 - [x] [filter 管理](./src/filter)
 - [x] [directive 管理](./src/directive)
 - [x] 用户相关基础功能

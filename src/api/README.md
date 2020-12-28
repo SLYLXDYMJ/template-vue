@@ -1,15 +1,18 @@
 > 基于 axios
 
-该目录管理项目中的所有异步请求，封装成一个 api 对象供调用
+统一管理项目中的接口。
 
-在 api/index.js 中有两种模式可供选择，区别是调用时是否有模块名，相应的打开和取消注释即可
-
-使用方法如下：
+并以插件的形式集成到 Vue 原型链中。
 
 ```javascript
-import api from '@/api'
+// 组件中调用方法
+this.$api.login()
 
-api.example.example(params)
-   .then(/* ... */)
-   .catch(/* ... */)
+// 非组件中调用
+// 两种方法都可以调用
+import Vue from 'vue'
+import { login } from '../api'
+
+Vue.prototype.$api.login();
+login();
 ```

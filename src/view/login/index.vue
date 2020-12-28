@@ -22,13 +22,11 @@
 </template>
 
 <script>
-  import api from '../../api'
-
   export default {
     methods: {
       async onClick () {
         // 模拟请求接口验证账号密码
-        let data = await api.user.login()
+        let data = await this.$api.login()
 
         // 模拟账号密码正确，后端返回了 token
         this.$store.dispatch('user/setToken', {
