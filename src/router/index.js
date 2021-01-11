@@ -48,7 +48,7 @@ router.beforeEach(async (to, from, next) => {
     // 用户身份验证失败
     await store.dispatch('user/check') === false
   ) {
-    return store.dispatch('user/toLogin')
+    return store.dispatch('user/goLogin')
   }
   return next()
 })

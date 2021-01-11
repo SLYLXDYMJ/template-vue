@@ -66,16 +66,14 @@
     },
     methods: {
       logout () {
-        this.$store.dispatch('user/logout')
-        this.$dialog.message.success('已退出登录')
-        this.$store.dispatch('user/toLogin', {
+        this.$store.dispatch('user/logoutAndGoLogin', {
           redirect: false
         })
+        this.$dialog.message.success('已退出登录')
       }
     }
   }
 </script>
 
 <style scoped>
-
 </style>

@@ -3,14 +3,16 @@
 具体封装如下：
 
 ## state
- attr  | desc
- ----- | -----
- token | 用户唯一标识
- info  | 用户信息
- 
+
+| attr  | desc         |
+| ----- | ------------ |
+| token | 用户唯一标识 |
+| info  | 用户信息     |
+
 ## actions
 
 ### setToken
+
 > 设置 user token
 
 ```javascript
@@ -19,28 +21,31 @@
  *  @param { String }  token     - token
  *  @param { Boolean } remember  - 是否永久记录 token
  **/
-store.dispatch('user/setToken', { token, remember })
+store.dispatch("user/setToken", { token, remember });
 // => 返回值无意义
 ```
- 
+
 ### check
+
 > 验证当前用户身份是否有效 <br/>
 > 该方法是实现路由验证的核心 (router.beforeEach)
 
 ```javascript
-await store.dispatch('user/check')
+await store.dispatch("user/check");
 // => true / false
 ```
 
 ### updateInfo
+
 > 更新用户信息并返回用户信息
 
 ```javascript
-store.dispatch('user/updateInfo', userInfo)
+store.dispatch("user/updateInfo", userInfo);
 // => 返回用户信息
 ```
 
 ### logout
+
 > 登出操作
 
 ```javascript
@@ -49,10 +54,11 @@ store.dispatch('user/updateInfo', userInfo)
  *  清空用户相关的所有信息
  *  清空 Storage 中的 token
  **/
-store.dispatch('user/logout')
+store.dispatch("user/logout");
 ```
 
-### toLogin
+### goLogin
+
 > 去登陆页面
 
 ```javascript
@@ -64,13 +70,24 @@ store.dispatch('user/logout')
  *
  *  @param { Boolean } [redirect=true] - 是否包含重定向参数
  **/
-store.dispatch('user/toLogin', { redirect: true })
+store.dispatch("user/goLogin", { redirect: true });
+```
+
+### logoutAndGoLogin
+> 登出并且重定向到登录页面
+```javascript
+/**
+ *  退出登录并且重定向到登录页面
+ *  @param { Boolean } [redirect=true] - 是否包含重定向参数
+ **/
+store.dispatch("user/logoutAndGoLogin", { redirect: true });
 ```
 
 ## mutations
+
 > 通常只需要调用 actions，不需要自己 commit
 
- type      | desc
- --------- | ----------------------------------------------------
- SET_TOKEN | 设置用户标识，此方法应该由 action setToken commit，尽量避免手动提交
- SET_INFO  | 设置用户信息，此方法应该由 action updateInfo commit，尽量避免手动提交
+| type      | desc                                                                  |
+| --------- | --------------------------------------------------------------------- |
+| SET_TOKEN | 设置用户标识，此方法应该由 action setToken commit，尽量避免手动提交   |
+| SET_INFO  | 设置用户信息，此方法应该由 action updateInfo commit，尽量避免手动提交 |

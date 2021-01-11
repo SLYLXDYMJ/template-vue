@@ -36,7 +36,7 @@
          *  若未登录，则跳转到等登录页面
          **/
         if (!this.userToken) {
-          this.$store.dispatch('user/toLogin')
+          this.$store.dispatch('user/goLogin')
         }
         else {
           this.$dialog.info({
@@ -50,5 +50,4 @@
 </script>
 
 <style scoped>
-
 </style>
