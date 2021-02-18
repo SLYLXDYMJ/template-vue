@@ -1,22 +1,26 @@
 <template>
-  <v-container>
-    <h1 class="headline mb-3">
+  <div class="root">
+    <h2>
       首页
-    </h1>
-    <h2 class="title">
+    </h2>
+    <br>
+    <p>
       这个页面不需要登录即可访问
       <br>
       但是这个页面的部分操作必须要登录后才可进行
       <br>
-      下面的按钮代表一个必须要登录后才能进行的操作，比如说支付，加入购物车等
-    </h2>
-    <v-btn
-      class="mt-5"
-      color="primary"
+      下面的按钮代表一个
+      <b>必须要登录后</b>
+      才能进行的操作，比如说支付，加入购物车等
+    </p>
+    <br>
+    <el-button
+      type="primary"
+      size="small"
       @click="onClick">
-      俺是按钮
-    </v-btn>
-  </v-container>
+      必须要登录后才能继续的操作
+    </el-button>
+  </div>
 </template>
 
 <script>

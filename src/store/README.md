@@ -9,6 +9,12 @@
 | token | 用户唯一标识 |
 | info  | 用户信息     |
 
+## getters
+
+| attr     | desc              |
+| -------- | ----------------- |
+| loggedIn | 当前用户是否已登录 |
+
 ## actions
 
 ### setToken

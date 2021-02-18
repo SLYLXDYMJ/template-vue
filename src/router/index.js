@@ -9,12 +9,12 @@ const routes = [
    *  {
    *    path: '/home',
    *    component: () => import('...'),
-   *    meta: { auth: true }
+   *    meta: { auth: true // 表示该页面是否需要登录才可以进入 }
    *  }
    **/
   {
     path: '/',
-    component: () => import('../layout/app/index'),
+    component: () => import('../layout/default/index'),
     children: [
       {
         path: '',

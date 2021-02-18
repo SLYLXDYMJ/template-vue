@@ -7,7 +7,10 @@
 </script>
 
 <style lang="scss">
-  .v-snack:not(.v-snack--absolute) {
-    padding-top: 0 !important;
+  // 在这里定义或者导入全局样式
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
 </style>
