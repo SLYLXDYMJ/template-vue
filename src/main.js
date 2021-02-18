@@ -3,11 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import './plugin'
-import './component'
-import './layout'
-import './filter'
-import './directive'
+import './plugins'
+import './components'
+import './layouts'
+import './filters'
+import './directives'
 
 Vue.config.productionTip = false
 

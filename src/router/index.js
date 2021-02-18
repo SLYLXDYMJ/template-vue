@@ -14,20 +14,20 @@ const routes = [
    **/
   {
     path: '/',
-    component: () => import('../layout/default/index'),
+    component: () => import('../layouts/default/index'),
     children: [
       {
         path: '',
-        component: () => import('../view/index/index')
+        component: () => import('../views/index/index')
       },
       {
         path: 'login',
-        component: () => import('../view/login/index'),
+        component: () => import('../views/login/index'),
         meta: { header: false }
       },
       {
         path: 'person',
-        component: () => import('../view/person/index'),
+        component: () => import('../views/person/index'),
         meta: { auth: true }
       }
     ]
