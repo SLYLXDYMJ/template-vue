@@ -75,8 +75,25 @@ request.interceptors.response.use(
 )
 
 /**
- *  模拟登陆
+ *  例子：请求方法
+ *  这个方法总会返回 Promise
+ *
+ *  参数规范如下：
+ *  @param { Object } params  - 请求参数
+ *  @param { Object } headers - 特殊的请求头部
+ *
+ *  注意：
+ *    若 get 则 params = params
+ *    若 data 则 data = params
+ *    若为 post 请求，并且需要在动态拼接 url
+ *      则在请求方法中依赖 params 自行实现
  **/
-export const login = function () {
-  return Promise.resolve({ token: 'template-vue' })
+export const example = function (params = {}, headers = {}) {
+  return request({
+    url: '',
+    method: 'get',
+    params,
+    // data: params,
+    headers
+  })
 }

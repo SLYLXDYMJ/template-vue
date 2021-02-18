@@ -29,7 +29,7 @@
     methods: {
       async login () {
         // 模拟请求接口验证账号密码
-        let data = await this.$api.login()
+        let data = { token: new Date().getTime() }
 
         // 模拟账号密码正确，后端返回了 token
         this.$store.dispatch('user/setToken', {
