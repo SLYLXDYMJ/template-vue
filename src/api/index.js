@@ -66,7 +66,7 @@ request.interceptors.response.use(
      *  这里给 "脱衣服"
      *  只返回接口响应的数据
      **/
-    return response.data
+    return Promise.resolve(response.data)
   },
   function (error) {
     // 对响应错误做点什么
