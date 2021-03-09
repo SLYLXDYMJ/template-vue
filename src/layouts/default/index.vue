@@ -9,7 +9,7 @@
           <el-menu-item index="/">
             首页
           </el-menu-item>
-          <el-menu-item index="/person">
+          <el-menu-item index="/person" v-if="loggedIn">
             个人
           </el-menu-item>
           <el-menu-item index="/login" v-if="!loggedIn">

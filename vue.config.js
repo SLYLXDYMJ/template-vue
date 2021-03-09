@@ -35,7 +35,7 @@ module.exports = {
         .options({
           patterns: [
             path.resolve(__dirname, './src/asset/style/variable.scss'),
-            path.resolve(__dirname, './src/asset/style/util.scss')
+            path.resolve(__dirname, './src/asset/style/utils.scss')
           ]
         })
     })

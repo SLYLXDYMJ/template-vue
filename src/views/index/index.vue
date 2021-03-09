@@ -17,37 +17,37 @@
     <el-button
       type="primary"
       size="small"
-      @click="onClick">
-      必须要登录后才能继续的操作
+      @click="$router.push('/person')">
+      跳转到登录后才能进入的 "个人中心" 页面
+    </el-button>
+    <el-button
+      type="primary"
+      size="small"
+      @click="alert">
+      若已登录，则直接弹出弹框，
+      若未登录，则先去登录，登录后触发弹框。
     </el-button>
   </div>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapGetters } from 'vuex'
 
   export default {
     computed: {
       ...mapState('user', {
         userToken: state => state.token,
         userInfo: state => state.info
-      })
+      }),
+      ...mapGetters('user', [ 'loggedIn' ])
     },
     methods: {
-      onClick () {
-        /**
-         *  判断用户是否登录
-         *  若未登录，则跳转到等登录页面
-         **/
-        if (!this.userToken) {
-          this.$store.dispatch('user/goLogin')
+      alert () {
+        if (!this.loggedIn) {
+          return this.$store.dispatch('user/goLogin')
         }
-        else {
-          this.$dialog.info({
-            title: '友情提示',
-            text: '用户已登录，可以进行后续操作'
-          })
-        }
+
+        window.alert('123')
       }
     }
   }

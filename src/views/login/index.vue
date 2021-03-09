@@ -39,12 +39,16 @@
 
         // 给出用户提示
         this.$message.success('登录成功')
-
+        
         /**
-         *   这里先按照 redirect 参数的地址跳转
-         *   若无 redirect 参数，则通常跳转到首页
+         *   根据 redirect 进行跳转
          **/
-        this.$router.replace(this.$route.query.redirect || '/')
+        if (this.$route.query.redirect) {
+          this.$router.replace(this.$route.query.redirect)
+        }
+        else {
+          this.$router.back()
+        }
       }
     }
   }

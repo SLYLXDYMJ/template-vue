@@ -72,9 +72,12 @@ store.dispatch("user/logout");
  *  重定向到登录页面
  *  用于登出，用户身份验证失败等场景
  *  这里统一加上重定向参数 redirect
- *  方便在登录成功后页面重定向
+ *  方便在登录成功后页面重定向或返回上一层
  *
- *  @param { Boolean } [redirect=true] - 是否包含重定向参数
+ *  @param { Boolean | String } [redirect]
+ *    若为 true 则代表登录成功后，重定向当前页面。
+ *    若为 string 则代表登录成功后，重定向到手动指定的页面。
+ *    若不存在，则代表登录成功后，返回上一层。
  **/
 store.dispatch("user/goLogin", { redirect: true });
 ```
