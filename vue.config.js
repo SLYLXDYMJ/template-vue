@@ -34,8 +34,8 @@ module.exports = {
         .loader('style-resources-loader')
         .options({
           patterns: [
-            path.resolve(__dirname, './src/asset/style/variable.scss'),
-            path.resolve(__dirname, './src/asset/style/utils.scss')
+            path.resolve(__dirname, './src/assets/styles/variable.scss'),
+            path.resolve(__dirname, './src/assets/styles/utils.scss')
           ]
         })
     })

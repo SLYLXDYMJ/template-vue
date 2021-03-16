@@ -18,16 +18,16 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import('../views/index/index')
+        component: () => import('../pages/index/index')
       },
       {
         path: 'login',
-        component: () => import('../views/login/index'),
+        component: () => import('../pages/login/index'),
         meta: { header: false }
       },
       {
         path: 'person',
-        component: () => import('../views/person/index'),
+        component: () => import('../pages/person/index'),
         meta: { auth: true }
       }
     ]
