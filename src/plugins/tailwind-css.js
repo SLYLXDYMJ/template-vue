@@ -1,5 +1,5 @@
 /**
- *  集成了 tailwind
+ *  集成了 tailwind-css
  *  文档：https://www.tailwindcss.cn/
  **/
 import 'tailwindcss/base.css'
